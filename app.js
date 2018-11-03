@@ -19,7 +19,7 @@ class ToDo {
       e.preventDefault()
 
     // New task
-      const newTask = new Task(task.value)
+      const newTask = new Task(this.tasks.length, task.value)
 
     // Add Task
       this.tasks.push(newTask)
@@ -28,7 +28,7 @@ class ToDo {
   }
 
   update() {
-    console.log(this.tasks)
+    
   }
 
   delete() {
