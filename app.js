@@ -28,6 +28,13 @@ class ToDo {
   }
 }
 
+class Task {
+  constructor(id, name) {
+    this.id = id,
+    this.name = name
+  }
+}
+
 // Init
 const myList = new ToDo('My List')
 
