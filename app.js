@@ -24,15 +24,25 @@ class ToDo {
     // Add Task
       this.tasks.push(newTask)
 
-      this.update()
+      this.update(newTask)
   }
 
-  update() {
+  update(task) {
+    // Render tasks
+    const li = document.createElement('li'),
+      button = document.createElement('button')
+
+    li.textContent = task.name
+    li.id = `task-${task.id}`
+    button.textContent = 'X'
+    button.value = task.id
+
+    li.appendChild(button)
+    tasks.appendChild(li)
+  }
+
+  delete(task) {
     
-  }
-
-  delete() {
-    // 
   }
 }
 
