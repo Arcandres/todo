@@ -9,6 +9,9 @@ class ToDo {
   constructor(name) {
     this.name = name,
     this.tasks = []
+
+    // Fix this pointing
+      this.newTask = this.newTask.bind(this)
   }
 
   newTask(e) {
@@ -17,10 +20,15 @@ class ToDo {
 
     // New task
       const newTask = new Task(task.value)
+
+    // Add Task
+      this.tasks.push(newTask)
+
+      this.update()
   }
 
   update() {
-    // 
+    console.log(this.tasks)
   }
 
   delete() {
