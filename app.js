@@ -12,6 +12,7 @@ class ToDo {
 
     // Fix this pointing
       this.newTask = this.newTask.bind(this)
+      this.delete = this.delete.bind(this)
   }
 
   newTask(e) {
@@ -41,8 +42,18 @@ class ToDo {
     tasks.appendChild(li)
   }
 
-  delete(task) {
-    
+  delete(e) {
+    e.preventDefault()
+
+    if (!e.target.value) {
+      return
+    }
+
+    // From data
+      this.tasks.splice(e.target.value, 1)
+
+    // From view
+      e.target.parentNode.parentNode.removeChild(e.target.parentNode)
   }
 }
 
@@ -58,3 +69,4 @@ const myList = new ToDo('My List')
 
 // Listener
 toDo.addEventListener('submit', myList.newTask)
+tasks.addEventListener('click', myList.delete)
