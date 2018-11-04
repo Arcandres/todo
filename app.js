@@ -19,6 +19,10 @@ class ToDo {
     // No reload
       e.preventDefault()
 
+    if (!task.value) {
+      return
+    }
+
     // New task
       const newTask = new Task(this.tasks.length, task.value)
 
@@ -26,6 +30,9 @@ class ToDo {
       this.tasks.push(newTask)
 
       this.update(newTask)
+
+    // Clean
+      e.target.reset()
   }
 
   update(task) {
@@ -44,10 +51,6 @@ class ToDo {
 
   delete(e) {
     e.preventDefault()
-
-    if (!e.target.value) {
-      return
-    }
 
     // From data
       this.tasks.splice(e.target.value, 1)
